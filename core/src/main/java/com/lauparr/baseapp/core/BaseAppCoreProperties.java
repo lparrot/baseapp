@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
-@ConfigurationProperties("baseapp.core")
+@ConfigurationProperties(prefix = "baseapp.core")
 public class BaseAppCoreProperties {
 	/**
 	 * Prefixe par défaut de tous les webservices de l'application (default: /api)
