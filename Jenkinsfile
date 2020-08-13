@@ -14,6 +14,7 @@ node {
   echo "-=- checkout project -=-"
     deleteDir()
     checkout scm
+    sh 'chmod +x mvnw'
   }
 
   stage("Unit Tests") {
