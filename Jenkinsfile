@@ -19,11 +19,11 @@ node {
  	}
 
   stage("clean") {
-      sh 'mvn clean'
+      sh 'mvnw clean'
   }
 
   stage("deploy") {
-	  	sh 'mvn deploy -Dmaven.test.skip=true'
+	  	sh 'mvnw deploy -Dmaven.test.skip=true'
   }
   
 }
