@@ -19,14 +19,16 @@ node {
   configFileProvider(
           [configFile(fileId: "$ID_MAVEN_SETTINGS", variable: 'MAVEN_SETTINGS')]) {
 
+/*
           stage("Unit Tests") {
             	echo "-=- execute unit tests -=-"
             	sh 'mvn -s $MAVEN_SETTINGS test'
           }
+*/
 
 					stage("Deploy") {
 						echo "-=- clean and deploy project -=-"
-						sh 'mvn -s $MAVEN_SETTINGS clean flatten:flatten source:jar javadoc:jar deploy -Dmaven.test.skip=true'
+						sh 'mvn -s $MAVEN_SETTINGS source:jar javadoc:jar deploy -Dmaven.test.skip=true'
 					}
   }
   
