@@ -16,14 +16,18 @@ node {
     checkout scm
   }
 
-  stage("Unit Tests") {
-  	echo "-=- execute unit tests -=-"
-  	sh 'mvn test'
- 	}
+  configFileProvider(
+          [configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
 
-  stage("Deploy") {
-  	echo "-=- clean and deploy project -=-"
-	  sh 'mvn clean source:jar javadoc:jar deploy -Dmaven.test.skip=true'
+          stage("Unit Tests") {
+            	echo "-=- execute unit tests -=-"
+            	sh 'mvn -s $MAVEN_SETTINGS test'
+          }
+
+					stage("Deploy") {
+						echo "-=- clean and deploy project -=-"
+						sh 'mvn -s $MAVEN_SETTINGS clean source:jar javadoc:jar deploy -Dmaven.test.skip=true'
+					}
   }
   
 }
