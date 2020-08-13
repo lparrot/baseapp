@@ -23,7 +23,7 @@ node {
 
   stage("Deploy") {
   	echo "-=- clean and deploy project -=-"
-	  sh 'mvn clean deploy -Dmaven.test.skip=true'
+	  sh 'mvn clean source:jar javadoc:jar deploy -Dmaven.test.skip=true'
   }
   
 }
