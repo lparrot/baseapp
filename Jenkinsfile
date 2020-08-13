@@ -11,15 +11,14 @@ properties(
 node {
 
   stage("Checkout") {
-  echo "-=- checkout project -=-"
+  	echo "-=- checkout project -=-"
     deleteDir()
     checkout scm
-    sh 'chmod +x mvnw'
   }
 
   stage("Unit Tests") {
   	echo "-=- execute unit tests -=-"
-  	sh './mvnw test'
+  	sh 'chmod +x mvnw && ./mvnw test'
  	}
 
   stage("Deploy") {
