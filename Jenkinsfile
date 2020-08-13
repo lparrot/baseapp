@@ -26,9 +26,14 @@ node {
           }
 */
 
+					stage("Package") {
+						echo "-=- package project -=-"
+						sh 'mvn -s $MAVEN_SETTINGS package source:jar javadoc:jar -Dmaven.test.skip=true'
+					}
+
 					stage("Deploy") {
 						echo "-=- clean and deploy project -=-"
-						sh 'mvn -s $MAVEN_SETTINGS source:jar javadoc:jar package deploy -Dmaven.test.skip=true'
+						sh 'mvn -s $MAVEN_SETTINGS deploy -Dmaven.test.skip=true'
 					}
   }
   
