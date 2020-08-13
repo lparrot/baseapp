@@ -18,12 +18,12 @@ node {
 
   stage("Unit Tests") {
   	echo "-=- execute unit tests -=-"
-  	sh 'chmod +x mvnw && ./mvnw test'
+  	sh 'mvn test'
  	}
 
   stage("Deploy") {
   	echo "-=- clean and deploy project -=-"
-	  sh './mvnw clean deploy -Dmaven.test.skip=true'
+	  sh 'mvn clean deploy -Dmaven.test.skip=true'
   }
   
 }
