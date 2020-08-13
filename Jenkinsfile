@@ -27,7 +27,7 @@ node {
 */
 
 					stage("Deploy") {
-						echo "-=- clean and deploy project -=-"
+						echo "-=- deploy project -=-"
 						sh 'mvn -s $MAVEN_SETTINGS source:jar javadoc:jar deploy -Dmaven.test.skip=true'
 					}
   }
