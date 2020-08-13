@@ -18,9 +18,12 @@ node {
   stage("unitTest") {
  	}
 
+  stage("clean") {
+      sh 'mvn clean'
+  }
+
   stage("deploy") {
-      sh 'mvn -s /etc/maven/settings.xml clean'
-	  	sh 'mvn -s /etc/maven/settings.xml deploy -Dmaven.test.skip=true'
+	  	sh 'mvn deploy -Dmaven.test.skip=true'
   }
   
 }
