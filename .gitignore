@@ -1,0 +1,7 @@
+# Folders
+.idea
+target
+
+# Files
+*.iml
+*.flattened-pom.xml
