@@ -7,12 +7,11 @@
 		<artifactId>baseapp-spring-boot-starter</artifactId>
 		<groupId>com.lauparr</groupId>
 		<version>${revision}</version>
-		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>baseapp-spring-boot-starter-core</artifactId>
+	<artifactId>core</artifactId>
 
 	<dependencies>
 		<dependency>
