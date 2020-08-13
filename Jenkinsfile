@@ -17,7 +17,7 @@ node {
   }
 
   configFileProvider(
-          [configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
+          [configFile(fileId: "$ID_MAVEN_SETTINGS", variable: 'MAVEN_SETTINGS')]) {
 
           stage("Unit Tests") {
             	echo "-=- execute unit tests -=-"
