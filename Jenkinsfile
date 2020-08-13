@@ -10,20 +10,20 @@ properties(
 
 node {
 
-  stage("checkout") {
+  stage("Checkout") {
+  echo "-=- checkout project -=-"
     deleteDir()
     checkout scm
   }
 
-  stage("unitTest") {
+  stage("Unit Tests") {
+  	echo "-=- execute unit tests -=-"
+  	sh './mvnw test'
  	}
 
-  stage("clean") {
-      sh 'mvnw clean'
-  }
-
-  stage("deploy") {
-	  	sh 'mvnw deploy -Dmaven.test.skip=true'
+  stage("Deploy") {
+  	echo "-=- clean and deploy project -=-"
+	  sh './mvnw clean deploy -Dmaven.test.skip=true'
   }
   
 }
